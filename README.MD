@@ -27,6 +27,8 @@ The project was developed to help answer key hotel management questions:
 
 # 📊 Excel Reporting Suite
 
+➡️ [View Excel Project Documentation](./Excel/README.md)
+
 ![Excel Reporting Suite](./Excel/Daily_Revenue_Flash_Report.JPG)
 
 The Excel solution focuses on operational and management reporting.
@@ -51,6 +53,8 @@ The Excel solution focuses on operational and management reporting.
 ---
 
 # 📈 Power BI Business Intelligence Dashboards
+
+➡️ [View Power BI Project Documentation](./Power%20BI/README.MD)
 
 ## 1. Hotel Executive Dashboard
 

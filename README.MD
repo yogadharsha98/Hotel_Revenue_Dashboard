@@ -27,7 +27,7 @@ The project was developed to help answer key hotel management questions:
 
 # 📊 Excel Reporting Suite
 
-➡️ [View Excel Project Documentation](./Excel/README.md)
+➡️ [View Excel Project Documentation](./Excel/README.MD)
 
 ![Excel Reporting Suite](./Excel/Daily_Revenue_Flash_Report.JPG)
 

@@ -1,171 +1,212 @@
-# 🏨 Hotel Revenue & Performance Dashboard
+# 🏨 Hotel Revenue Analytics Suite
 
-> **Excel dashboard** analysing hotel operational and financial performance across 6 months (January – June 2025).
-
-![Dashboard Preview](./images/Monthly_Revenue.JPG)
+> End-to-end Hotel Business Intelligence solution built using Excel and Power BI, covering operational reporting, revenue management, occupancy analysis, forecasting, and profitability tracking.
 
 ---
 
-## 📊 Dashboard Overview
+# 📖 Project Overview
 
-This dashboard was built to help hotel management make data-driven decisions by tracking key revenue, occupancy, and expense metrics across all departments — summarised by month using PivotTables and interactive slicers built entirely in Microsoft Excel.
+This project simulates a complete hotel analytics environment where operational, revenue, and financial data are transformed into actionable business insights.
 
----
-
-## ✨ Features
-
-| Section                     | Description                                                                                  |
-| --------------------------- | -------------------------------------------------------------------------------------------- |
-| **KPI Cards**               | Total Revenue, Net Revenue, Occupancy Rate, Total Expenses — updated per selected month      |
-| **Revenue Breakdown**       | Horizontal bar chart — Room Revenue, Restaurant Revenue, Net Revenue, Expenses side by side  |
-| **Booking Source Analysis** | Revenue by channel — Direct, Agoda, Booking.com, Walk-in, Travel Agent, Website              |
-| **Monthly Revenue Trend**   | Bar chart showing Jan–Jun revenue progression                                                |
-| **Expenses by Department**  | Horizontal bar chart — Finance, HR, Maintenance, Sales, Spa, F&B, Housekeeping               |
-| **Occupancy Summary**       | Table showing Rooms Available, Rooms Occupied, Occupancy Rate, ADR, RevPAR                   |
-| **Monthly Detail Table**    | Room Revenue, Restaurant Revenue, Total Revenue, Expenses, Net Revenue, Occupancy % by month |
-| **Net Revenue Line Chart**  | Trend line showing net revenue movement Jan–Jun                                              |
-| **Month Slicer**            | Interactive filter — select any month to update all PivotTables and charts dynamically       |
+The solution includes interactive dashboards, management reports, forecasting models, and hospitality KPI analysis designed for hotel executives, revenue managers, and finance teams.
 
 ---
 
-## 🔑 Key Metrics (YTD — Jan to Jun 2025)
+# 🎯 Business Objectives
 
-| Metric                   | Value            |
-| ------------------------ | ---------------- |
-| Total Revenue            | LKR 111.6M       |
-| Total Expenses           | LKR 63.2M        |
-| Total Net Revenue        | LKR 48.4M        |
-| Average Occupancy Rate   | 70.29%           |
-| Average ADR              | LKR 10,957       |
-| Average RevPAR           | LKR 7,982        |
-| Best Month (Revenue)     | June — LKR 21.2M |
-| Best Month (Net Revenue) | June — LKR 11.3M |
+The project was developed to help answer key hotel management questions:
+
+- How is hotel revenue performing?
+- Are occupancy levels improving?
+- Which booking channels generate the most revenue?
+- How profitable is the hotel?
+- Which departments contribute most to operating costs?
+- What future revenue and occupancy trends can be expected?
 
 ---
 
-## 🛠️ Tools & Technologies
+# 📊 Excel Reporting Suite
 
-| Tool                       | Purpose                                                             |
-| -------------------------- | ------------------------------------------------------------------- |
-| **Microsoft Excel**        | Dashboard development, PivotTables, charts, slicers                 |
-| **Power Query**            | Data import, transformation, and cleaning for all 7 tables          |
-| **PivotTables**            | Cross-table aggregation — revenue, expenses, seasonal adjustments   |
-| **Conditional Formatting** | Visual highlighting — green for positive variance, red for negative |
-| **Data Validation**        | Dropdown lists and input rules to maintain data integrity           |
-| **Data Model**             | DateTable linked to all fact tables via Power Query connections     |
+![Excel Reporting Suite](./Excel/Daily_Revenue_Flash_Report.JPG)
 
----
+The Excel solution focuses on operational and management reporting.
 
-## 📐 Data Model
+### Included Reports
 
-```
-DateTable (Date)
-     │
-     ├── Reservations      (CheckInDate)
-     ├── RestaurantSales   (SaleDate)
-     ├── Occupancy         (Date)
-     └── Expenses          (ExpenseDate)
+- Daily Revenue Flash Report
+- Weekly Performance Report
+- Monthly Executive Report
+- Revenue & Occupancy Forecast Report
+- Interactive Revenue Dashboard
 
-Reservations
-     ├── Customers         (CustomerID)
-     └── Rooms             (RoomID)
-```
+### Key Features
 
-All tables connected through a central **DateTable** in the Excel Data Model — enabling accurate cross-table PivotTable filtering via the month slicer.
+- Power Query Data Transformation
+- Excel Data Model
+- PivotTables & PivotCharts
+- Slicers & Interactive Filtering
+- Revenue Forecasting
+- Variance Analysis
 
 ---
 
-## 📐 Key Excel Formulas & Functions Used
+# 📈 Power BI Business Intelligence Dashboards
 
-```excel
--- Revenue calculation (PivotTable Values)
-Sum of RoomRevenue        → Total Room Revenue
-Sum of TotalAmount        → Total Restaurant Revenue
-Sum of Amount             → Total Expenses
+## 1. Hotel Executive Dashboard
 
--- Calculated columns
-Net Revenue   = Room Revenue + Restaurant Revenue - Expenses
-Variance %    = (Actual - Budget) / Budget
+![Executive Dashboard](./Power%20BI//Hotel_Executive_Dashboard.JPG)
 
--- Hotel KPIs
-ADR    = Room Revenue / Rooms Occupied
-RevPAR = Room Revenue / Rooms Available
+**Audience:** General Manager
 
--- Date intelligence
-=TEXT(A2, "mmmm")         -- Month name
-=YEAR(A2)                 -- Year extraction
-=EOMONTH(TODAY(), 0)      -- End of current month
-```
+**Focus Areas:**
+
+- Occupancy %
+- ADR
+- RevPAR
+- TRevPAR
+- GOPPAR
+- Revenue Growth
+- Revenue Trend Analysis
 
 ---
 
-## 📋 Dataset Description
+## 2. Revenue Optimization Dashboard
 
-| Table           | Rows  | Key Columns                                                                |
-| --------------- | ----- | -------------------------------------------------------------------------- |
-| Reservations    | 1,000 | ReservationID, CustomerID, RoomID, BookingSource, CheckInDate, RoomRevenue |
-| RestaurantSales | 1,500 | SaleID, SaleDate, MenuItem, TotalAmount, Outlet, MealPeriod                |
-| Occupancy       | 181   | Date, RoomsAvailable, RoomsOccupied, OccupancyRate, ADR, RevPAR            |
-| Expenses        | 279   | ExpenseID, ExpenseDate, Department, ExpenseCategory, Amount                |
-| Customers       | 100   | CustomerID, CustomerName, Country, LoyaltyMember                           |
-| Rooms           | 50    | RoomID, RoomType, BaseRate, Status                                         |
-| Employees       | 36    | EmployeeID, Department, Role, MonthlySalary                                |
+![Revenue Optimization Dashboard](./Power%20BI/Revenue_Optimization_Dashboard.JPG)
 
-> All data is **sample/synthetic** — generated for learning and portfolio purposes only.
+**Audience:** Revenue Manager
 
----
+**Focus Areas:**
 
-## 🏨 Hotel KPIs Explained
-
-| KPI                | Formula                                | What it tells management                                        |
-| ------------------ | -------------------------------------- | --------------------------------------------------------------- |
-| **Occupancy Rate** | Rooms Occupied ÷ Rooms Available × 100 | What % of rooms are being filled                                |
-| **ADR**            | Room Revenue ÷ Rooms Occupied          | Average price paid per occupied room                            |
-| **RevPAR**         | Room Revenue ÷ Rooms Available         | Revenue earned per available room — combines occupancy and rate |
-| **Net Revenue**    | Total Revenue − Total Expenses         | Actual profit after all costs                                   |
+- ADR Trend
+- Channel Mix Analysis
+- Booking Source Performance
+- Occupancy Analysis
+- Revenue Optimization
 
 ---
 
-## 📈 Reports Built
+## 3. Profitability Dashboard
 
-| Report                     | Frequency | Contents                                               |
-| -------------------------- | --------- | ------------------------------------------------------ |
-| Daily Revenue Flash Report | Daily     | Revenue by dept, occupancy, ADR, RevPAR vs target      |
-| Weekly Performance Summary | Weekly    | Day-by-day breakdown, week vs prior week, observations |
-| Monthly Executive Report   | Monthly   | Revenue vs budget, YTD summary, expense breakdown      |
-| 6-Month Forecast           | One-off   | Revenue and occupancy forecast with confidence bounds  |
+![Profitability Dashboard](./Power%20BI/Financial_Performance_Dashboard.JPG)
 
----
+**Audience:** Finance Manager
 
-## 💡 Key Insights from the Data
+**Focus Areas:**
 
-- **June was the strongest month** — LKR 21.2M total revenue and 73.49% occupancy
-- **April had the highest expenses** — LKR 11.3M, impacting net revenue despite strong room sales
-- **Website and Booking.com** are the top OTA channels by revenue contribution
-- **Housekeeping and HR** are the largest expense departments
-- **Net revenue improved steadily** from January (7.7M) to June (11.3M) — positive growth trend
-<!-- - **Forecast shows December** as the projected peak month — aligned with Sri Lanka holiday season -->
+- Total Revenue
+- Total Expenses
+- GOP
+- GOPPAR
+- CPOR
+- Profit Margin %
+- Expense Analysis
 
 ---
 
-<!-- ## 🚀 How to Use
+# 🏨 Hotel KPIs Used
 
-1. Download the Excel file from the repository
-2. Open in **Microsoft Excel 2016 or later**
-3. Go to the **Dashboard** sheet
-4. Use the **Month slicer** to filter all visuals dynamically
-5. Go to **Forecast_Data** sheet to view the 6-month forecast with confidence bounds -->
-
----
-
-## 👩‍💻 About
-
-Built by **Yogeswaran Yogakrishanthi** as part of a data analytics portfolio.
-
-- 🔗 [LinkedIn](https://www.linkedin.com/in/yogeswaran-yogakrishanthi/)
-- 💻 [GitHub](https://github.com/yogadharsha98)
-- 📧 yogeswarandharsha@gmail.com
+| KPI             | Description                               |
+| --------------- | ----------------------------------------- |
+| Occupancy %     | Percentage of available rooms occupied    |
+| ADR             | Average Daily Rate                        |
+| RevPAR          | Revenue Per Available Room                |
+| TRevPAR         | Total Revenue Per Available Room          |
+| GOP             | Gross Operating Profit                    |
+| GOPPAR          | Gross Operating Profit Per Available Room |
+| CPOR            | Cost Per Occupied Room                    |
+| Profit Margin % | Profitability Ratio                       |
 
 ---
 
-> _This project demonstrates end-to-end Excel BI development — from raw CSV data through Power Query transformation, data modelling with DateTable relationships, PivotTable reporting, advanced Excel formulas, and interactive dashboard design._
+# 🛠 Tools & Technologies
+
+### Excel
+
+- Power Query
+- PivotTables
+- PivotCharts
+- Data Model
+- Forecasting
+- Conditional Formatting
+
+### Power BI
+
+- Power Query
+- DAX
+- Data Modeling
+- Interactive Dashboards
+- KPI Design
+- Financial Analysis
+
+---
+
+# 📋 Dataset
+
+The project uses seven integrated hospitality datasets:
+
+| Dataset          | Purpose                         |
+| ---------------- | ------------------------------- |
+| Reservations     | Booking and room revenue data   |
+| Restaurant Sales | Food & beverage transactions    |
+| Occupancy        | Room utilization metrics        |
+| Expenses         | Departmental operating expenses |
+| Customers        | Guest information               |
+| Rooms            | Room inventory                  |
+| Employees        | Staff information               |
+
+> All data used in this project is synthetic/sample data created for educational and portfolio purposes.
+
+---
+
+# 💡 Key Insights
+
+- June was the highest revenue-generating month.
+- Occupancy remained consistently above 70%.
+- Website and Booking.com were top-performing booking channels.
+- Housekeeping, HR, and Finance were major cost centres.
+- Profitability improved significantly during peak periods.
+- Forecasted demand indicates stronger year-end performance.
+
+---
+
+# 🚀 Skills Demonstrated
+
+### Business Intelligence
+
+- Dashboard Design
+- KPI Development
+- Executive Reporting
+- Financial Analysis
+
+### Data Analytics
+
+- Data Cleaning
+- Data Transformation
+- Data Modeling
+- Trend Analysis
+
+### Technical Skills
+
+- Excel
+- Power BI
+- Power Query
+- DAX
+- PivotTables
+- Forecasting
+
+---
+
+# 👩‍💻 Author
+
+**Yogeswaran Yogakrishanthi**
+
+🔗 LinkedIn: https://www.linkedin.com/in/yogeswaran-yogakrishanthi/
+
+💻 GitHub: https://github.com/yogadharsha98
+
+📧 [yogeswarandharsha@gmail.com](mailto:yogeswarandharsha@gmail.com)
+
+---
+
+This project demonstrates end-to-end Business Intelligence development, hospitality analytics, management reporting, forecasting, financial analysis, and dashboard design using Excel and Power BI.
